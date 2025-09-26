@@ -16,7 +16,7 @@ int main(void){
         printf("Enter the Grade,  -1 to end the program:");
         scanf("%d", &iGrade);
         // Grade can only entered between 0 and 100
-        if( iGrade>0 && iGrade<100){
+        if( iGrade>=0 && iGrade<=100){
             // Count passed students and failed student
             if(iGrade<60){
                 iFail = iFail + 1;
