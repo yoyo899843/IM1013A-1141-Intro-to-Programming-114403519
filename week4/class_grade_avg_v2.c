@@ -2,7 +2,7 @@
 
 int main(void){
     float fAverage;
-    int iCounter = -1;
+    int iCounter = 0;
     int iTotal = 0;
     int iGrade = 0;
     while (iGrade != -1){
