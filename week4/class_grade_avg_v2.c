@@ -3,13 +3,13 @@
 int main(void){
     float fAverage;
     int iCounter = -1;
-    int iTotal,iGrade = 0;
+    int iTotal = 0;
+    int iGrade = 0;
     while (iGrade != -1){
         iTotal = iTotal + iGrade;
         iCounter = iCounter + 1;
         printf("Enter the Grade,  -1 to end the program:");
         scanf("%d", &iGrade);
-        printf("%d %d",iTotal,iCounter);
     }
     
     if (iCounter != 0){
