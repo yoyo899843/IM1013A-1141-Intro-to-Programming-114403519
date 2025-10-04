@@ -26,28 +26,36 @@ int UserNum_Len_Check( int UserNum ){
 int Password_Generater( int );
 int Password_Generater( int UserNum ){
     int Password;
-    Password = ((UserNum * 3) + 1357) % 10000;
-    int mask = 0;
-    int digit;
+    while(1){
+        printf("a");
+        Password = ((UserNum * 3) + 1357) % 10000;
+        int mask = 0;
+        int digit;
+        int error = 0;
 
-    while (Password > 0) {
-        digit = Password % 10;
-        if (mask & (1 << digit)) {
-            printf("有重複的數字\n");
-            return 0;
+        while (Password > 0) {
+            digit = Password % 10;
+            if (mask & (1 << digit)) {
+                error = 1;
+                break;
+            }
+            mask |= (1 << digit);
+            Password /= 10;
         }
-        mask |= (1 << digit);
-        Password /= 10;
+        Password = UserNum;
+        if( error == 0){
+            printf("%d", Password);
+            return Password;
+        }
     }
-
-    printf("沒有重複的數字\n");
-    return 0;
 }
 
 int main(void){
+    int Password;
     int UserNum;
     printf("Enter a 4-digit number to generate a password:\n");
     scanf("%d", &UserNum);
     UserNum = UserNum_Len_Check(UserNum);
+    Password = Password_Generater(UserNum);
     printf("%d", UserNum);
 }
