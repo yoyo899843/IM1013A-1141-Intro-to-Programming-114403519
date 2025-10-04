@@ -13,6 +13,7 @@ int UserNum_Check(UserNum){
     }
 }
 
+
 int Password_Generater(UserNum){
     Password = ((UserNum * 3) + 1357) % 10000
 }
