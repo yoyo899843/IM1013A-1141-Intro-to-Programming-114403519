@@ -1,21 +1,17 @@
 #include <stdio.h>
 
 int main(void) {
-    int n = 0;
-    while(1){
-        scanf("%d", &n);
-        int mask = 0;   // 用來記錄哪些數字出現過
-        int digit;
+    int test = 45645;
+    int len = 0, n = test;
 
-        while (n > 0) {
-            digit = n % 10;
-            if (mask & (1 << digit)) {
-                printf("有重複的數字\n");
-                break;
-            }
-            mask |= (1 << digit);
+    if (n == 0) len = 1;
+    else {
+        while (n != 0) {
             n /= 10;
+            len++;
         }
     }
+
+    printf("%d\n", len);  // 會印出 3
     return 0;
 }
