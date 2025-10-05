@@ -51,9 +51,10 @@ int Password_Generater( int UserNum ){
     int Password;
     Password = (UserNum*3)+1357;
     Password = Password%10000;
-
+    
+    // Check if any number is duplicate in password
     while (1) {
-        int mask = 0;   // 紀錄哪些數字出現過
+        int mask = 0;
         int digit;
         int temp = Password;
         int isDuplicate = 0;
@@ -108,7 +109,7 @@ int main(void){
             UserNum /= 10;
         }
 
-        // 計算 Bulls 和 Cows
+        // Use nested loops to check cows and bulls 
         for (i = 0; i < 4; i++) {
             for (j = 0; j < 4; j++) {
                 if (guess[i] == secret[j]) {
