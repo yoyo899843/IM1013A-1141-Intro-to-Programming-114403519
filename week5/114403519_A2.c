@@ -1,5 +1,6 @@
 # include <stdio.h>
 
+// Define a function to check if user's input is 4-digit 
 int UserNum_Len_Check( int UserNum ){
     while(1){
         int len = 0, n = UserNum;
@@ -22,6 +23,7 @@ int UserNum_Len_Check( int UserNum ){
     return UserNum;
 }
 
+// Define a function to check if user's input is 4-digit 
 int UserGuess_Len_Check( int UserNum ){
     while(1){
         int len = 0, n = UserNum;
@@ -44,6 +46,7 @@ int UserGuess_Len_Check( int UserNum ){
     return UserNum;
 }
 
+// Generating password
 int Password_Generater( int UserNum ){
     int Password;
     Password = (UserNum*3)+1357;
