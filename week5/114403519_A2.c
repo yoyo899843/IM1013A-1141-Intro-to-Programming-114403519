@@ -58,6 +58,7 @@ int Password_Generater( int UserNum ){
         int digit;
         int temp = Password;
         int isDuplicate = 0;
+        int count = 0; // 計算有幾位數
         while (temp > 0) {
             digit = temp % 10;
             if (mask & (1 << digit)) {
@@ -66,6 +67,7 @@ int Password_Generater( int UserNum ){
             }
             mask |= (1 << digit);
             temp /= 10;
+            count++;
         }
 
         if (isDuplicate) {
@@ -79,6 +81,7 @@ int Password_Generater( int UserNum ){
 }
 
 int main(void){
+
     int Password, Password_Backup;
     int UserNum;
     printf("Enter a 4-digit number to generate a password:\n");
