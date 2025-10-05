@@ -109,7 +109,7 @@ int main(void){
             UserNum /= 10;
         }
 
-        // Use nested loops to check cows and bulls 
+        // Use nested loops to count cows and bulls 
         for (i = 0; i < 4; i++) {
             for (j = 0; j < 4; j++) {
                 if (guess[i] == secret[j]) {
