@@ -60,7 +60,7 @@ int Password_Generater( int UserNum ){
         int duplicate = 0;  
         int count = 0;  // Count how many numbers
         while (temp > 0) {
-            int digit_bin;
+            int digit_bin = 0000000000;
             digit = temp % 10;  // Take rightmost bits
             // Use 10 bit memory to save the number, for example:3 will be save as 0000001000, 1 will be put at 4th digit from right
             digit_bin = 1 << digit;
