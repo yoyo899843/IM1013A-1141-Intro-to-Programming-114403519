@@ -46,23 +46,23 @@ int UserGuess_Len_Check( int UserNum ){
     return UserNum;
 }
 
-// Generating password
+// Generate password
 int Password_Generater( int UserNum ){
     int Password;
     Password = (UserNum*3)+1357;
     Password = Password%10000;
     
-    // Check if any number is duplicate in password
+    // Check if any number is duplicate in password (用字元位移 from cgatgpt but been modified by myself)
     while (1) {
         int mask = 0;
         int digit;
         int temp = Password;
-        int isDuplicate = 0;
-        int count = 0; // 計算有幾位數
+        int duplicate = 0;  
+        int count = 0;  // Count how many numbers
         while (temp > 0) {
-            digit = temp % 10;
+            digit = temp % 10;  // Take rightmost bits
             if (mask & (1 << digit)) {
-                isDuplicate = 1;
+                duplicate = 1;
                 break;
             }
             mask |= (1 << digit);
@@ -70,7 +70,8 @@ int Password_Generater( int UserNum ){
             count++;
         }
 
-        if (isDuplicate) {
+        // If it's duplicate, regenerate password
+        if (duplicate) {
             Password = (Password * 3) + 1357;
             Password = Password % 10000;
         } 
@@ -90,13 +91,14 @@ int main(void){
     Password_Backup = Password = Password_Generater(UserNum);
     
     printf("A secret password has been generated.\n");
-
-    int secret[4];
+    
+    // Read user's input and then turn into list
+    int lPassword[4];
     int guess[4];
     int i, j;
     int k = 1;
     for (i = 3; i >= 0; i--) {
-            secret[i] = Password % 10;
+            lPassword[i] = Password % 10;
             Password /= 10;
         }
 
@@ -115,7 +117,7 @@ int main(void){
         // Use nested loops to count cows and bulls 
         for (i = 0; i < 4; i++) {
             for (j = 0; j < 4; j++) {
-                if (guess[i] == secret[j]) {
+                if (guess[i] == lPassword[j]) {
                     if (i == j) bulls++;
                     else cows++;
                 }
@@ -124,10 +126,13 @@ int main(void){
 
         printf("Bulls: %d, Cows: %d\n\n", bulls, cows);
 
+        // If 4 numbers are correct, user wins
         if (bulls == 4) {
             printf("GAME ENDS.\nYOU WIN THE GAME!!\n");
             break;
         }
+
+        // If 4 numbers are wrong, user wins
         if (bulls == 0 && cows == 0){
             printf("The correct password is %d.\nGAME OVER.\nYOU LOSE THE GAME.\n", Password_Backup);
             break;
