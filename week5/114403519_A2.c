@@ -60,17 +60,22 @@ int Password_Generater( int UserNum ){
         int duplicate = 0;  
         int count = 0;  // Count how many numbers
         while (temp > 0) {
+            int digit_bin;
             digit = temp % 10;  // Take rightmost bits
-            if (mask & (1 << digit)) {
+            // Use 10 bit memory to save the number, for example:3 will be save as 0000001000, 1 will be put at 4th digit from right
+            digit_bin = 1 << digit;
+            // Check if the number is been used, use AND to check
+            if (mask & digit_bin) {
                 duplicate = 1;
                 break;
             }
-            mask |= (1 << digit);
+            // Use OR to merge new number and old number
+            mask |= digit_bin;
             temp /= 10;
             count++;
         }
 
-        // If it's duplicate, regenerate password
+        // If it's duplicate, generate password again
         if (duplicate) {
             Password = (Password * 3) + 1357;
             Password = Password % 10000;
