@@ -12,8 +12,8 @@ int UserNum_Len_Check( int UserNum ){
             }
         }
         if ( len != 4){
-            printf("Invalid input! Please enter a 4-digit number.\n");
-            printf("Enter a 4-digit number to generate a password:\n");
+            printf("\nInvalid input! Please enter a 4-digit number.\n");
+            printf("\nEnter a 4-digit number to generate a password:\n");
             scanf("%d", &UserNum);
         }
         else{
@@ -35,8 +35,8 @@ int UserGuess_Len_Check( int UserNum ){
             }
         }
         if ( len != 4){
-            printf("Invalid input! Please enter a 4-digit number.\n");
-            printf("Enter your guess:");
+            printf("\nInvalid input! Please enter a 4-digit number.\n");
+            printf("\nEnter your guess:");
             scanf("%d", &UserNum);
         }
         else{
@@ -95,7 +95,7 @@ int main(void){
     UserNum = UserNum_Len_Check(UserNum);
     Password_Backup = Password = Password_Generater(UserNum);
     
-    printf("A secret password has been generated.\n");
+    printf("\nA secret password has been generated.\n");
     
     // Read user's input and then turn into list
     int lPassword[4];
@@ -109,7 +109,7 @@ int main(void){
 
     int bulls, cows;
     while (1) {
-        printf("--- ROUND %d ---\nEnter a 4-digit number:",k );
+        printf("\n--- ROUND %d ---\nEnter a 4-digit number:",k );
         
         bulls = cows = 0;
         scanf("%d", &UserNum);
@@ -129,17 +129,17 @@ int main(void){
             }
         }
 
-        printf("Bulls: %d, Cows: %d\n\n", bulls, cows);
+        printf("Bulls: %d, Cows: %d\n", bulls, cows);
 
         // If 4 numbers are correct, user wins
         if (bulls == 4) {
-            printf("GAME ENDS.\nYOU WIN THE GAME!!\n");
+            printf("\nGAME ENDS.\nYOU WIN THE GAME!!\n");
             break;
         }
 
         // If 4 numbers are wrong, user wins
         if (bulls == 0 && cows == 0){
-            printf("The correct password is %d.\nGAME OVER.\nYOU LOSE THE GAME.\n", Password_Backup);
+            printf("\nThe correct password is %d.\nGAME OVER.\nYOU LOSE THE GAME.\n", Password_Backup);
             break;
         }
         k += 1;
