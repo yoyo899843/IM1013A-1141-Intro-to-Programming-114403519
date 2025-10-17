@@ -5,15 +5,15 @@ void Option_1(){
     int Adult, Student;
     while(1){
         while(1){
-            printf("%s", "\n[Option 1]Please enter how many adult ticket(s) you want to buy? (1-20, or -1 to end the program)\n");
+            printf("%s", "[Option 1]Please enter how many adult ticket(s) you want to buy? (1-20, or -1 to end the program)\n");
             scanf("%d", &Adult);    
-            if(Adult == -1) return 0;
+            if(Adult == -1) break;
             if(Adult>=1 && Adult<=20){
                 break;
             }
             printf("%s", "The number should be a integer between 1 and 20\n");
         }
-        if(Adult == -1) return 0;
+        if(Adult == -1) break;
         while(1){
             printf("%s", "[Option 1]Please enter how many student ticket(s) you want to buy? (1-20, or -1 to end the program)\n");
             scanf("%d", &Student);
@@ -52,7 +52,7 @@ void Option_1(){
         printf("Quantity Discount: %.2f\n", Discount);
         if(Bonus == 1) printf("Bonus Discount: Yes (you will have 0.95 discount)\n");
         else if(Bonus == 0) printf("Bonus Discount: No\n");
-        printf("Final Payable Amount: %.2f\n", Total_Amount);
+        printf("Final Payable Amount: %.2f\n\n", Total_Amount);
     }
 }
 
@@ -64,11 +64,12 @@ void Option_2(){
         while(1){
             printf("%s", "[Option 2] Enter principal in dollars (positive), or -1 to end:\n");
             scanf("%f", &Principal);
-            if(Principal>0) break;
+            if(Principal>0 || Principal == -1) break;
             printf("%s", "Please enter positive number\n");
         }
         
-        if(Principal<501 && Principal>0){
+        if(Principal == -1) break;
+        else if(Principal<501 && Principal>0){
             Period = 1;
             Handling_Fee = 0.0;
             Interest_Rate = 0.0;
@@ -88,7 +89,6 @@ void Option_2(){
             Handling_Fee = 12;
             Interest_Rate = 0.015;
         }
-        else if(Principal == -1) return 0;
 
         Total_Repayment = Principal*pow(1+Interest_Rate,Period)+(Handling_Fee*Period);
 
@@ -108,8 +108,9 @@ int main(){
     while(1){
         int Option;
         printf("%s", "\n===== Future City Expo Ticket System =====\n");
-        printf("%s", "1) Option 1 - Single-Order Quotation\n2) Option 2 - Group Total & Installments\n-1) End the Program\n");
+        printf("%s", "1) Option 1 - Single-Order Quotation\n2) Option 2 - Group Total & Installments\n-1) End the Program\nSelect: ");
         scanf("%d", &Option);
+        printf("%s","\n");
         if(Option == 1){
             Option_1();
             break;
@@ -119,7 +120,7 @@ int main(){
             break;
         }
         else if(Option == -1) return 0;
-        else printf("%s", "Please enter 1, 2 or -1\n");
+        else printf("%s", "Please enter 1, 2 or -1 to end\n");
     }
     return 0;
 }
