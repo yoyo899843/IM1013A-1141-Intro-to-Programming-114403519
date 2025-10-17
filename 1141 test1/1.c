@@ -4,7 +4,7 @@ int main(){
     int Adult, Student;
     while(1){
         while(1){
-            printf("%s", "Please enter how many adult ticket(s) you want to buy? (1-20, or -1 to end the program)\n");
+            printf("%s", "[Option 1]Please enter how many adult ticket(s) you want to buy? (1-20, or -1 to end the program)\n");
             scanf("%d", &Adult);    
             if(Adult == -1) break;
             if(Adult>=1 && Adult<=20){
@@ -14,7 +14,7 @@ int main(){
         }
         if(Adult == -1) break;
         while(1){
-            printf("%s", "Please enter how many student ticket(s) you want to buy? (1-20, or -1 to end the program)\n");
+            printf("%s", "[Option 1]Please enter how many student ticket(s) you want to buy? (1-20, or -1 to end the program)\n");
             scanf("%d", &Student);
             if(Student == -1) break;
             if(Student>=1 && Student<=20){
@@ -34,7 +34,7 @@ int main(){
         else if(Adult+Student<16){
             Discount = 0.90;
         }
-        else if(Adult+Student<21){
+        else if(Adult+Student<41){
             Discount = 0.85;
         }
         
