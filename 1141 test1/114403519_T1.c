@@ -57,8 +57,13 @@ void Option_1(){
 
 int main(){
     while(1){
+        int Option;
         printf("%s", "===== Future City Expo Ticket System =====\n");
-        printf("%s", "1) Option 1 - Single-Order Quotation\n2) Option 2 - Group Total & Installments\n-1) End the Program");
+        printf("%s", "1) Option 1 - Single-Order Quotation\n2) Option 2 - Group Total & Installments\n-1) End the Program\n");
+        scanf("%d", &Option);
+        if(Option == 1);
+        else if(Option == 2);
+        else if(Option == -1) return 0;        
     }
     
 }
