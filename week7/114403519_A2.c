@@ -16,7 +16,7 @@ void reverse_number(char N[100]){
     char lnumber[7],R[7];
 
     sprintf(lnumber, "%s", N);  // Turn the integer into a list
-    int len = strlen(lnumber);
+    int len = strlen(lnumber);  // Check number's length
 
     for (int i = 0; i < len; i++) {
         R[i] = lnumber[len - i - 1];  // Add numbers in the N from left to right to R
@@ -42,7 +42,7 @@ int main(void){
                 while (1) {
                     printf("Enter a positive integer between 1 and 100000:\n");
                     scanf("%s", N);
-                    number = atoi(N);
+                    number = atoi(N);  // Turn the list into a integer to check
                     if (number > 0 && number < 100000) {
                         break;  // Go to reverse step
                     }
