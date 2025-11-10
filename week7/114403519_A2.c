@@ -1,6 +1,8 @@
 # include <stdio.h>
+# include <string.h>
 
-int multiplication(int a, int b){
+
+int multiplication(){
     for(int i=1; i<10; i++){
         for(int j=1; j<10; j++){
             printf("%d*%d=%2d  ", i, j, i*j);
@@ -9,8 +11,23 @@ int multiplication(int a, int b){
     }
 }
 
-int reverse_number(int n){
-    
+int reverse_number(){
+    int inumber;
+    char lnumber[6], ans[6];
+    while (1){
+        printf("%s", "Enter a positive integer between 1 and 100000:");
+        sprintf(lnumber, "%d", inumber);
+        if(inumber>0 || inumber<1000000){
+            break;
+        }
+        else{
+            printf("%s", "Invalid input!");
+        }
+    }
+    for(int i=0; i<strlen(lnumber); i++){
+        ans[i] = inumber%(10^i);
+    }
+    printf("%s", ans);
 }
 
 int main(void){
@@ -24,7 +41,8 @@ int main(void){
                 printf("%s", "\n");
                 break;
             case 2 :
-                printf("%d", option);
+                reverse_number();
+                printf("%s", "\n");
                 break;
             case (-1) :
                 return 0;
