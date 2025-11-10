@@ -12,18 +12,16 @@ void multiplication(){
     }
 }
 
-void reverse_number(char N[100]){
-    char lnumber[7],R[7];
-
-    sprintf(lnumber, "%s", N);  // Turn the integer into a list
-    int len = strlen(lnumber);  // Check number's length
+void reverse_number(char N[7]){
+    char R[7];
+    int len = strlen(N);  // Check number's length
 
     for (int i = 0; i < len; i++) {
-        R[i] = lnumber[len - i - 1];  // Add numbers in the N from left to right to R
+        R[i] = N[len - i - 1];  // Add numbers in the N from left to right to R
     }
     R[len] = '\0';  // Add the end symbol avoid odd symbol
 
-    printf("--- REVERSAL RESULT ---\nOriginal Number N: %s\nReversed Number R: %s\n", lnumber, R);  
+    printf("--- REVERSAL RESULT ---\nOriginal Number N: %s\nReversed Number R: %s\n",N , R);  
 }
 
 int main(void){
@@ -37,11 +35,12 @@ int main(void){
                 printf("%s", "\n");
                 break;
             case 2 :
-                char N[100];
+                char N[7];
                 int number;
                 while (1) {
                     printf("Enter a positive integer between 1 and 100000:\n");
-                    scanf("%s", N);
+                    scanf("%6s", N);
+                    while (getchar() != '\n'); // Avoid overflow
                     number = atoi(N);  // Turn the list into a integer to check
                     if (number > 0 && number < 100000) {
                         break;  // Go to reverse step
