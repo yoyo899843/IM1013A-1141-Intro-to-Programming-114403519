@@ -13,30 +13,30 @@ void multiplication(){
 }
 
 void reverse_number(){
-    char lnumber[7],ans[7];
+    char lnumber[7],R[7];
+    int N;
 
     while (1) {
         printf("Enter a positive integer between 1 and 100000:\n");
-        scanf("%6s", lnumber); // The number will have digitals less than 6
+        scanf("%d", &N);
 
-        int inumber = atoi(lnumber);  //Integer character to integer, in the library <stdlib.h>
-
-        if (inumber > 0 && inumber < 100000) {
-            break;  //Go to reverse step
+        if (N > 0 && N < 100000) {
+            break;  // Go to reverse step
         }
         else {
-            printf("Invalid input!\n");  //Stay in the loop until the input is valid
+            printf("Invalid input!\n\n");  // Stay in the loop until the input is valid
         }
     }
 
+    sprintf(lnumber, "%d", N);  // Turn the integer into a list
     int len = strlen(lnumber);
 
     for (int i = 0; i < len; i++) {
-        ans[i] = lnumber[len - i - 1];
+        R[i] = lnumber[len - i - 1];  // Add numbers in the N from left to right to R
     }
-    ans[len] = '\0';  //Add the end symbol avoid odd symbol
+    R[len] = '\0';  // Add the end symbol avoid odd symbol
 
-    printf("--- REVERSAL RESULT ---\nOriginal Number N: %s\nReversed Number: %s\n", lnumber, ans);  
+    printf("--- REVERSAL RESULT ---\nOriginal Number N: %s\nReversed Number R: %s\n", lnumber, R);  
 }
 
 int main(void){
