@@ -12,23 +12,10 @@ void multiplication(){
     }
 }
 
-void reverse_number(){
+void reverse_number(char N[100]){
     char lnumber[7],R[7];
-    int N;
 
-    while (1) {
-        printf("Enter a positive integer between 1 and 100000:\n");
-        scanf("%d", &N);
-
-        if (N > 0 && N < 100000) {
-            break;  // Go to reverse step
-        }
-        else {
-            printf("Invalid input!\n\n");  // Stay in the loop until the input is valid
-        }
-    }
-
-    sprintf(lnumber, "%d", N);  // Turn the integer into a list
+    sprintf(lnumber, "%s", N);  // Turn the integer into a list
     int len = strlen(lnumber);
 
     for (int i = 0; i < len; i++) {
@@ -50,7 +37,20 @@ int main(void){
                 printf("%s", "\n");
                 break;
             case 2 :
-                reverse_number();  // Use the function we defined
+                char N[100];
+                int number;
+                while (1) {
+                    printf("Enter a positive integer between 1 and 100000:\n");
+                    scanf("%s", N);
+                    number = atoi(N);
+                    if (number > 0 && number < 100000) {
+                        break;  // Go to reverse step
+                    }
+                    else {
+                        printf("Invalid input!\n\n");  // Stay in the loop until the input is valid
+                    }
+                }
+                reverse_number(N);  // Use the function we defined
                 printf("%s", "\n");
                 break;
             case (-1) :
