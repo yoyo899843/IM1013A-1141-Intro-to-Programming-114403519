@@ -6,7 +6,7 @@ void Triangle(int N){
     printf("%s","\n");
     for(int i=1; i<=N; i++){
         for(int j=1; j<=i; j++){
-            printf("%2d ", count);
+            printf("%d ", count);
             count = count + 1;
         }
         printf("%s", "\n");
@@ -14,7 +14,28 @@ void Triangle(int N){
     printf("%s","\n");
 }
 
-void Four_Quadrant(int N){
+void dectobin(int N){
+    int count=0;
+    char ans[8];
+    if(N==0){
+        printf("%d%s", 0,"\n\n");
+    }
+    else{
+        for (int i=7; i>0; i--){
+            if(N>0){
+                ans[i] = N%2;
+                count = count + 1;
+            }
+            N = (N-N%2)/2;
+        }
+        for(int i=8-count; i<8; i++){
+            printf("%d", ans[i]);
+        }
+        printf("%s", "\n\n");
+    }
+}
+
+void Four_Quadrant(int N, int row, int col){
     for(int i=0; i<N; i++){
         for(int j=0; j<N; j++){
             printf("%s", "@");
@@ -43,6 +64,7 @@ void Four_Quadrant(int N){
         }
         printf("%s", "\n");
     }
+    printf("%s", "\n");
 }
 
 int main(void){
@@ -61,21 +83,31 @@ int main(void){
                 }
                 Triangle(N);
                 break;
+
+            case 2:
+                printf("%s", "Please enter a decimal number (0~127)：");
+                scanf("%d", &N);
+                if (N>127|N<0){
+                    printf("%s", "Invalid input\n\n");
+                    break;
+                }
+                dectobin(N);
+                break;
             case 3:
-                printf("%s", "Please enter the size of the triangle (1~20)：");
+                printf("%s", "Please enter the size of each quadrant (1~20)：");
                 scanf("%d", &N);
                 if (N>20|N<1){
                     printf("%s", "Invalid input\n\n");
                     break;
                 }
-                Four_Quadrant(N);
+                Four_Quadrant(N,0,0);
                 break;
             case (-1):
                 printf("%s","\n");
                 printf("%s", "Program Ends\n");
                 return 0;
             default:
-                printf("%s", "Invalid input");
+                printf("%s", "Invalid input\n\n");
                 break;
         }   
     }
