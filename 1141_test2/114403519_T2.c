@@ -28,6 +28,7 @@ void dectobin(int N){
             }
             N = (N-N%2)/2;
         }
+        printf("%s", "The binary number is ");
         for(int i=8-count; i<8; i++){
             printf("%d", ans[i]);
         }
@@ -36,30 +37,30 @@ void dectobin(int N){
 }
 
 void Four_Quadrant(int N, int row, int col){
-    for(int i=0; i<N; i++){
-        for(int j=0; j<N; j++){
+    for(col=0; col<N; col++){
+        for(row=0; row<N; row++){
             printf("%s", "@");
         }
         printf("%s", "|");
-        for(int j=0; j<N; j++){
+        for(row=0; row<N; row++){
             printf("%s", "#");
         }
         printf("%s", "\n");
     }
-    for(int j=0; j<N; j++){
+    for(row=0; row<N; row++){
         printf("%s", "-");
     }
     printf("%s", "+");
-    for(int j=0; j<N; j++){
+    for(row=0; row<N; row++){
         printf("%s", "-");
     }
     printf("%s", "\n");
-    for(int i=0; i<N; i++){
-        for(int j=0; j<N; j++){
+    for(int col=0; col<N; col++){
+        for(int row=0; row<N; row++){
             printf("%s", "%");
         }
         printf("%s", "|");
-        for(int j=0; j<N; j++){
+        for(int row=0; row<N; row++){
             printf("%s", "&");
         }
         printf("%s", "\n");
