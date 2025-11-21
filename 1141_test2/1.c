@@ -1,23 +1,21 @@
 # include<stdio.h>
 # include<string.h>
-# include<stdlib.h>
+
 
 int main(void){
-    int N, len;
-    printf("%s", "Please Enter a Decimal Number Between 0-127\n");
-    scanf("%d", &N);
+    int N;
+    int count=0;
     char ans[8];
-    ans[7] = '\0';
-    for(int i = 7; i>=0; i--){
-        printf("%d", N);
-        ans[i]= N % 2;
-        N = N/2;
-        printf("%d", N);
-        if(N=0){
-            len = 7-i;
+    ans[strlen(ans)]='\0';
+    scanf("%d", &N);
+    for (int i=7; i>0; i--){
+        if(N>0){
+            ans[i] = N%2;
+            count = count + 1;
         }
+        N = N/2;
     }
-    /*for(int i=7; i>=len; i--){
+    for(int i=7-count; i<=7; i++){
         printf("%d", ans[i]);
-    }*/
+    }
 }

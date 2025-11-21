@@ -14,6 +14,37 @@ void Triangle(int N){
     printf("%s","\n");
 }
 
+void Four_Quadrant(int N){
+    for(int i=0; i<N; i++){
+        for(int j=0; j<N; j++){
+            printf("%s", "@");
+        }
+        printf("%s", "|");
+        for(int j=0; j<N; j++){
+            printf("%s", "#");
+        }
+        printf("%s", "\n");
+    }
+    for(int j=0; j<N; j++){
+        printf("%s", "-");
+    }
+    printf("%s", "+");
+    for(int j=0; j<N; j++){
+        printf("%s", "-");
+    }
+    printf("%s", "\n");
+    for(int i=0; i<N; i++){
+        for(int j=0; j<N; j++){
+            printf("%s", "%");
+        }
+        printf("%s", "|");
+        for(int j=0; j<N; j++){
+            printf("%s", "&");
+        }
+        printf("%s", "\n");
+    }
+}
+
 int main(void){
     int option;
     while (1){
@@ -29,6 +60,15 @@ int main(void){
                     break;
                 }
                 Triangle(N);
+                break;
+            case 3:
+                printf("%s", "Please enter the size of the triangle (1~20)：");
+                scanf("%d", &N);
+                if (N>20|N<1){
+                    printf("%s", "Invalid input\n\n");
+                    break;
+                }
+                Four_Quadrant(N);
                 break;
             case (-1):
                 printf("%s","\n");
