@@ -71,12 +71,12 @@ void Four_Quadrant(int N, int row, int col){
 int main(void){
     int option;
     while (1){
-        printf("%s", "=====Menu=====\n1) Option 1 - Increasing Number Triangle Pattern\n2) Option 2 - Decimal to Binary Using Recursion\n3) Option 3 - Printing a Four-Quadrant Pattern\n(-1) End Program\nSelect：");
+        printf("%s", "=====Menu=====\n1) Option 1 - Increasing Number Triangle Pattern\n2) Option 2 - Decimal to Binary Using Recursion\n3) Option 3 - Printing a Four-Quadrant Pattern\n(-1) End Program\nSelect:");
         scanf("%d", &option);
         switch (option){
             case 1:
                 int N;
-                printf("%s", "Please enter the size of the triangle (1~20)：");
+                printf("%s", "Please enter the size of the triangle (1~20):");
                 scanf("%d", &N);
                 if (N>20|N<1){
                     printf("%s", "Invalid input\n\n");
@@ -86,7 +86,7 @@ int main(void){
                 break;
 
             case 2:
-                printf("%s", "Please enter a decimal number (0~127)：");
+                printf("%s", "Please enter a decimal number (0~127):");
                 scanf("%d", &N);
                 if (N>127|N<0){
                     printf("%s", "Invalid input\n\n");
@@ -95,7 +95,7 @@ int main(void){
                 dectobin(N);
                 break;
             case 3:
-                printf("%s", "Please enter the size of each quadrant (1~20)：");
+                printf("%s", "Please enter the size of each quadrant (1~20):");
                 scanf("%d", &N);
                 if (N>20|N<1){
                     printf("%s", "Invalid input\n\n");
