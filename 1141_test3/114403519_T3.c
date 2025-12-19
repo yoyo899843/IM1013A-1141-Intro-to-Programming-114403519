@@ -149,6 +149,10 @@ int main(void){
             printf("\nPlease enter the size of the matix(3~10):");
             int N;
             scanf("%d", &N);
+            if(N<3|N>10){
+                printf("Invalid input!\n\n");
+                break;
+            }
             int n = N*N;
             int map[N][N];
             printf("Matrix M ( %d x %d )\n",N ,N);
