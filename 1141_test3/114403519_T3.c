@@ -3,6 +3,8 @@
 # include<time.h>
 
 void ring_traversre(int N, int Matrix[N][N],int top, int left, int bottom, int right){
+    // Print content from top to right to bottom to left
+    // Use >=, <= to print the corner's content
     while (top<((N/2)+1))
     {
         for(int i = left; i<=right; i++){
@@ -28,6 +30,7 @@ void ring_traversre(int N, int Matrix[N][N],int top, int left, int bottom, int r
 void flatten_2d_to_1d(int N, int M[N][N], int B[]){
     int count=0;
     printf("\n[Flattened 1D array B in row-major order]\n");
+    // Print array content one by one
     for(int i=0; i<N; i++){
         for(int j=0; j<N; j++){
             printf("%d ", M[i][j]);
@@ -40,6 +43,7 @@ void flatten_2d_to_1d(int N, int M[N][N], int B[]){
 
 void sort_ascending(int n, int B[n]){
     int TMP;
+    // Using Bubble Sort
     for(int i=0; i<n ;i++){
         for(int j=0; j<n-1; j++){
             if(B[j]>B[j+1]){
@@ -61,11 +65,13 @@ void find_max_resource_block(int N, int map[N][N]){
     for(int i=0; i<=N-3; i++){
         for(int j=0; j<=N-3; j++){
             sum = 0;
+            // Check the 3*3 block's sum through whole matrix
             for(int k=i; k<i+3; k++){
                 for(int l=j; l<j+3; l++){
                     sum = sum + map[k][l];
                 }
             }
+            // Check the greatest sum and record the location
             if(sum>tmp){
                 tmp = sum;
                 top = i;
