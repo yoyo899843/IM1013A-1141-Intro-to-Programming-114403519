@@ -101,12 +101,14 @@ int main(void){
             printf("\nPlease enter the size of the matix(1~5):");
             int N;
             scanf("%d", &N);
+            // Check if user's input is valid
             if(N<1|N>5){
                 printf("Invalid input!\n\n");
                 break;
             }
             int Matrix[N][N];
             printf("[Matrix A]\n");
+            // Generate ramdon num in Matrix
             srand(time(NULL));
             for(int i=0; i<N; i++){
                 for(int j=0; j<N; j++){
@@ -125,6 +127,7 @@ int main(void){
             printf("\nPlease enter the size of the matix(1~5):");
             int N;
             scanf("%d", &N);
+            // Check if user's input is valid
             if(N<1|N>5){
                 printf("Invalid input!\n\n");
                 break;
@@ -132,6 +135,7 @@ int main(void){
             int n = N*N;
             int M[N][N], B[n];
             printf("[Matrix M ( %d x %d )]\n",N ,N);
+            // Generate ramdon num in Matrix
             srand(time(NULL));
             for(int i=0; i<N; i++){
                 for(int j=0; j<N; j++){
@@ -149,6 +153,7 @@ int main(void){
             printf("\nPlease enter the size of the matix(3~10):");
             int N;
             scanf("%d", &N);
+            // Check if user's input is valid
             if(N<3|N>10){
                 printf("Invalid input!\n\n");
                 break;
@@ -156,6 +161,7 @@ int main(void){
             int n = N*N;
             int map[N][N];
             printf("Matrix M ( %d x %d )\n",N ,N);
+            // Generate ramdon num in Matrix
             srand(time(NULL));
             for(int i=0; i<N; i++){
                 for(int j=0; j<N; j++){
